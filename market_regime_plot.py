@@ -10,7 +10,7 @@ import math
 import pickle
 
 
-class market_regime_plot:
+class Main:
     def __init__(self, data, data_freq="d"):
         pd.plotting.register_matplotlib_converters()
         self.data_freq = data_freq
