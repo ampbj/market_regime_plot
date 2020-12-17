@@ -89,7 +89,7 @@ class Main:
                     (data_to_draw.index[-1].date() - data_to_draw.index[0].date()).days
                     / 90
                 ),
-                6,
+                4,
             )
         elif self.data_freq == "h":
             freq = "hours"
@@ -98,7 +98,7 @@ class Main:
                     (data_to_draw.index[-1].date() - data_to_draw.index[0].date()).days
                     / 90
                 ),
-                6,
+                5,
             )
         elif self.data_freq == "m":
             one_day = 60 * 24
@@ -131,8 +131,8 @@ class Main:
                             text,
                             xy=(index, row["Price"]),
                             xytext=(
-                                index - datetime.timedelta(**{freq: (duration * 4)}),
-                                (row["Price"] + (duration * 2) - offset_value),
+                                index - datetime.timedelta(**{freq: (duration * 1)}),
+                                (row["Price"] + (duration * 2)),
                             ),
                             horizontalalignment="center",
                             color=color,
@@ -148,7 +148,7 @@ class Main:
                             text,
                             xy=(index, row["Price"]),
                             xytext=(
-                                index - datetime.timedelta(**{freq: (duration * 4)}),
+                                index - datetime.timedelta(**{freq: (duration * 1)}),
                                 (row["Price"] - (duration * 2) - offset_value),
                             ),
                             horizontalalignment="center",
@@ -180,8 +180,8 @@ class Main:
                                 xy=(index, row["Price"]),
                                 xytext=(
                                     index
-                                    - datetime.timedelta(**{freq: (duration * 10)}),
-                                    (row["Price"] - (duration)),
+                                    - datetime.timedelta(**{freq: (duration * 2)}),
+                                    (row["Price"] - (duration * 2)),
                                 ),
                                 horizontalalignment="center",
                                 color="#bac90a",
@@ -219,7 +219,7 @@ class Main:
                             text,
                             xy=(index, row["Price"]),
                             xytext=(
-                                index - datetime.timedelta(**{freq: (duration * 4)}),
+                                index - datetime.timedelta(**{freq: (duration * 1)}),
                                 (row["Price"] + (duration * 2) + offset_value),
                             ),
                             horizontalalignment="center",
@@ -251,8 +251,8 @@ class Main:
                                 xy=(index, row["Price"]),
                                 xytext=(
                                     index
-                                    - datetime.timedelta(**{freq: (duration * 10)}),
-                                    (row["Price"] + (duration)),
+                                    - datetime.timedelta(**{freq: (duration * 2)}),
+                                    (row["Price"] + (duration * 2)),
                                 ),
                                 horizontalalignment="center",
                                 color="#bac90a",
