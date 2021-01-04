@@ -107,6 +107,13 @@ class Main:
             duration = min(math.ceil(one_day / length), 0.1)
             offset_value_reduction = max((1 / duration), 10)
 
+        elif self.data_freq == "s":
+            one_day = 60 * 24
+            freq = "seconds"
+            length = len(data_to_draw)
+            duration = min(math.ceil(one_day / length), 0.005)
+            offset_value_reduction = max((1 / duration), 150)
+
         for column in data_event_columns:
             annotate_result = data_to_draw[data_to_draw[column].notnull()]
             match = re.search(r"(Event_)([\w\.-]+)", column)
@@ -117,7 +124,7 @@ class Main:
             else:
                 color = "#0c7ea8"
                 offset_value = 5
-            if self.data_freq == "m":
+            if self.data_freq == "m" or self.data_freq == "s":
                 offset_value /= offset_value_reduction
             for index, row in annotate_result.iterrows():
                 text = "%s%s" % (row[column], superscript)
